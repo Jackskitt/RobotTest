@@ -11,15 +11,15 @@ namespace RobotTest.Models
         public DefaultBoardItem(Vector2 position)
         {
             ItemColor = ConsoleColor.White;
-            this.position = position;
+            this.Position = position;
         }
 
         public ConsoleColor ItemColor { get; set; }
         public Vector2 Position { get; set; }
 
-        public char ToBoardPiece()
+        public string ToBoardPiece()
         {
-            return '#';
+            return "##";
         }
     }
 }

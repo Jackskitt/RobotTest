@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RobotTest.Services\RobotTest.Services.csproj" />
+  </ItemGroup>
+
 </Project>

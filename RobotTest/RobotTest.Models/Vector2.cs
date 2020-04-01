@@ -27,11 +27,11 @@
             switch (direction)
             {
                 case Direction.NORTH:
-                    return new Vector2(0, -1);
+                    return new Vector2(0, 1);
                 case Direction.EAST:
                     return new Vector2(1, 0);
                 case Direction.SOUTH:
-                    return new Vector2(0, 1);
+                    return new Vector2(0, -1);
                 case Direction.WEST:
                     return new Vector2(-1, 0);
             }
