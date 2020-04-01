@@ -113,6 +113,8 @@ namespace RobotTest.Services
         public void SaveBoard(Board board)
         {
             var boardIndex = boards.FindIndex(x => x.Name == board.Name);
+            if (boardIndex > boards.Count)
+                return;
             boards[boardIndex] = board;
         }
 
