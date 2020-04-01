@@ -10,7 +10,16 @@ namespace RobotTest.Services
     {
         public bool IsPositionValid(Board board, Vector2 position)
         {
-            throw new NotImplementedException();
+            if (board == default(Board))
+                throw new ArgumentNullException("Need a board to validate a position against");
+
+            if (position.X >= board.Width || position.X < 0)
+                return false;
+
+            if (position.Y >= board.Height || position.Y < 0)
+                return false;
+
+            return true;
         }
 
     }

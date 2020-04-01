@@ -27,7 +27,7 @@ namespace RobotTest.Services
             var newLocation = directionVector + robot.Position;
 
             if (!positionValidator.IsPositionValid(board, newLocation))
-                throw new Exception("Position Invalid");
+                throw new RobotOutOfBoundsException(newLocation);
 
             boardService.MoveObjectAtPosition(boardName, robot.Position, newLocation);
             return true;

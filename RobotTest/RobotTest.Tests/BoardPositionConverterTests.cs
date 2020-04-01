@@ -20,11 +20,12 @@ namespace RobotTest.Tests
             var newCoords = converter.ToBoardCoordinates(new Vector2(inputX, inputY), board);
             Assert.Equal(new Vector2(expectedX, expectedY), newCoords);
         }
+
         [Theory]
-        [InlineData(0, 4,0, 0)]
-        [InlineData(0, 0,0, 4)]
-        [InlineData(4, 4,4, 0)]
-        [InlineData(2, 2,2, 2)]
+        [InlineData(0, 4, 0, 0)]
+        [InlineData(0, 0, 0, 4)]
+        [InlineData(4, 4, 4, 0)]
+        [InlineData(2, 2, 2, 2)]
         [InlineData(4, 0, 4, 4)]
         public void TestFromBoardCoordinatesBounds(int inputX, int inputY, int expectedX, int expectedY)
         {

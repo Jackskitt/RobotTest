@@ -22,7 +22,7 @@ namespace RobotTest.Services.Interfaces
         /// <param name="boardItem">The board item to place</param>
         /// <param name="position">The position to put it in</param>
         /// <returns></returns>
-        bool PlaceObjectAtPosition(string boardName, IBoardItem boardItem, Vector2 position);
+        void PlaceObjectAtPosition(string boardName, IBoardItem boardItem, Vector2 position);
 
         /// <summary>
         /// Moves the object from a source position to a destination
@@ -31,7 +31,7 @@ namespace RobotTest.Services.Interfaces
         /// <param name="source">Source position</param>
         /// <param name="destination">Destination position</param>
         /// <returns></returns>
-        bool MoveObjectAtPosition(string boardName, Vector2 source, Vector2 destination);
+        void MoveObjectAtPosition(string boardName, Vector2 source, Vector2 destination);
 
         /// <summary>
         /// Fetches the board from the data source

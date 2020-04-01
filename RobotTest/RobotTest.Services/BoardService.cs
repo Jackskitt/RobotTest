@@ -73,20 +73,19 @@ namespace RobotTest.Services
         /// <param name="source">Source position in board space</param>
         /// <param name="destination">Destination position in board space</param>
         /// <returns></returns>
-        public bool MoveObjectAtPosition(string boardName, Vector2 source, Vector2 destination)
+        public void MoveObjectAtPosition(string boardName, Vector2 source, Vector2 destination)
         {
             var board = GetBoard(boardName);
 
             var sourcePosition = boardPositionConverter.FromBoardCoordinates(source, board);
             var destinationPosition = boardPositionConverter.FromBoardCoordinates(destination, board);
             if (!positionValidator.IsPositionValid(board, destinationPosition))
-                return false;
+                throw new RobotOutOfBoundsException(destination);
 
             var objectAtSource = board.BoardItems[sourcePosition.X, sourcePosition.Y];
             board.BoardItems[destinationPosition.X, destinationPosition.Y] = objectAtSource;
             objectAtSource.Position = destination;
             board.BoardItems[sourcePosition.X, sourcePosition.Y] = new DefaultBoardItem(source);
-            return true;
         }
 
         /// <summary>
@@ -96,18 +95,17 @@ namespace RobotTest.Services
         /// <param name="boardItem"></param>
         /// <param name="position"></param>
         /// <returns></returns>
-        public bool PlaceObjectAtPosition(string boardName, IBoardItem boardItem, Vector2 position)
+        public void PlaceObjectAtPosition(string boardName, IBoardItem boardItem, Vector2 position)
         {
             var board = GetBoard(boardName);
 
             var destPosition = boardPositionConverter.FromBoardCoordinates(position, board);
             if (!positionValidator.IsPositionValid(board, destPosition))
-                return false;
+                throw new RobotOutOfBoundsException(position);
 
             boardItem.Position = position;
             board.BoardItems[destPosition.X, destPosition.Y] = boardItem;
 
-            return true;
         }
 
         public void SaveBoard(Board board)
@@ -115,6 +113,7 @@ namespace RobotTest.Services
             var boardIndex = boards.FindIndex(x => x.Name == board.Name);
             if (boardIndex > boards.Count)
                 return;
+
             boards[boardIndex] = board;
         }
 
@@ -127,7 +126,6 @@ namespace RobotTest.Services
         /// <returns></returns>
         public Board CreateNewBoard(string name, int width, int height)
         {
-
             var boardItems = new IBoardItem[width, height];
             for (var x = 0; x < width; x++)
             {

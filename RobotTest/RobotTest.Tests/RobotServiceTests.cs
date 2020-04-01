@@ -92,9 +92,7 @@ namespace RobotTest.Tests
             var robotService = new RobotService(boardService, new PositionValidator());
             boardService.CreateNewBoard("test", 5, 5);
             robotService.PlaceRobot("test", new Vector2(1, 4), Direction.NORTH);
-            var moveResult = robotService.MoveForward("test");
-            Assert.False(moveResult);
+            Assert.Throws<RobotOutOfBoundsException>(() => robotService.MoveForward("test"));           
         }
-
     }
 }

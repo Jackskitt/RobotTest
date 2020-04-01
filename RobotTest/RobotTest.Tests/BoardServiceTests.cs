@@ -53,8 +53,7 @@ namespace RobotTest.Tests
             robotService.PlaceRobot("test", new Vector2(1, 1), Direction.NORTH);
             var robotReport = robotService.ReportPosition("test");
             Assert.Equal("X: 1 Y: 1 F: NORTH", robotReport);
-            var moveResult = boardService.MoveObjectAtPosition("test", new Vector2(1, 1), new Vector2(3, 3));
-            Assert.True(moveResult);
+            boardService.MoveObjectAtPosition("test", new Vector2(1, 1), new Vector2(3, 3));
             var newRobotPosition = robotService.ReportPosition("test");
 
             Assert.Equal("X: 3 Y: 3 F: NORTH", newRobotPosition);
