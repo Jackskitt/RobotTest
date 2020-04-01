@@ -14,9 +14,19 @@ namespace RobotTest.Services
             return ToBoardCoordinates(position, board);
         }
 
+        public Vector2 FromBoardCoordinates(Vector2 position, int height)
+        {
+            return ToBoardCoordinates(position, height);
+        }
+
         public Vector2 ToBoardCoordinates(Vector2 position, Board board)
         {
-            return new Vector2(position.X, (position.Y - board.Height) * -1);
+            return ToBoardCoordinates(position, board.Height);
+        }
+
+        public Vector2 ToBoardCoordinates(Vector2 position, int height)
+        {
+            return new Vector2(position.X, (position.Y - (height - 1)) * -1);
         }
     }
 }

@@ -33,9 +33,9 @@ namespace RobotTest.Models
         public Vector2 Position { get; set; }
         public ConsoleColor ItemColor { get; set; }
 
-        public char ToBoardPiece()
+        public string ToBoardPiece()
         {
-            return 'R';
+            return "R"+Direction.ToString()[0];
         }
 
         public string ToBoardReport()
