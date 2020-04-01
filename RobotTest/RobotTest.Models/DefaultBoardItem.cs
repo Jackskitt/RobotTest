@@ -19,7 +19,7 @@ namespace RobotTest.Models
 
         public string ToBoardPiece()
         {
-            return "##";
+            return Position.X+""+Position.Y;
         }
     }
 }

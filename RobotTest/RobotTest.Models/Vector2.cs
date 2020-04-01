@@ -22,6 +22,11 @@
             return new Vector2(a.X * b.X, a.Y * b.Y);
         }
 
+        /// <summary>
+        /// Gets the direction we want to go when the user is facing a direction
+        /// </summary>
+        /// <param name="direction"></param>
+        /// <returns></returns>
         public static Vector2 MatrixFromDirection(Direction direction)
         {
             switch (direction)

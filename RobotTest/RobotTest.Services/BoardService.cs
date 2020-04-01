@@ -35,10 +35,10 @@ namespace RobotTest.Services
             var boardToDraw = GetBoard(boardName);
             var oldCursorLeft = Console.CursorLeft;
             var oldCursorTop = Console.CursorTop;
-            Console.SetCursorPosition(0, 1);
-            for (var x = 0; x < boardToDraw.Width; x++)
+            Console.SetCursorPosition(0, 2);
+            for (var y = 0; y < boardToDraw.Height; y++)
             {
-                for (var y = 0; y < boardToDraw.Height; y++)
+                for (var x = 0; x < boardToDraw.Width; x++)
                 {
                     var item = boardToDraw.BoardItems[x, y];
                     if (item == null)
