@@ -11,6 +11,6 @@ namespace RobotTest.Models.Interfaces
 
         Vector2 Position { get; set; }
 
-        char ToBoardPiece();
+        string ToBoardPiece();
     }
 }

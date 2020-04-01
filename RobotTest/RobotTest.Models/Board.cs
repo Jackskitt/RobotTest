@@ -7,9 +7,16 @@ namespace RobotTest.Models
 {
     public class Board
     {
-        public Board(int width, int height)
+        public Board(string name, int width, int height, IBoardItem[,] boardItems)
         {
-            BoardItems = new IBoardItem[width, height];
+            this.Name = name;
+            this.Width = width;
+            this.Height = height;
+            BoardItems = boardItems;
+        }
+        public Board(string name, int width, int height)
+        {
+            this.Name = name;
             this.Width = width;
             this.Height = height;
         }

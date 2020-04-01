@@ -4,13 +4,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace RobotTest.Services
+namespace RobotTest.Services.Mocks
 {
-    public class PositionValidator : IPositionValidator
+    public class MockPositionValidator : IPositionValidator
     {
         public bool IsPositionValid(Board board, Vector2 position)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
     }
