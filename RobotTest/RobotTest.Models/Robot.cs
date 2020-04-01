@@ -25,6 +25,7 @@ namespace RobotTest.Models
             this.Position = position;
             this.Direction = direction;
             ItemColor = robotColor;
+            Name = "Johnny-Four";
         }
 
         public string Name { get; set; }

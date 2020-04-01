@@ -42,6 +42,10 @@ namespace RobotTest.Services
         /// <returns></returns>
         public Robot PlaceRobot(string boardName, Vector2 position, Direction direction)
         {
+            var robotExists = RobotExists(boardName);
+            if (robotExists)
+                throw new RobotAlreadyExistsException();
+
             var robotToCreate = new Robot(ConsoleColor.Red, position, direction);
             boardService.PlaceObjectAtPosition(boardName, robotToCreate, position);
             return robotToCreate;
@@ -68,6 +72,18 @@ namespace RobotTest.Services
             }
 
             throw new RobotPlacedException(boardName);
+        }
+
+        public bool RobotExists(string boardName)
+        {
+            var board = boardService.GetBoard(boardName);
+            foreach (var boardItem in board.BoardItems)
+            {
+                if (boardItem is IRobot)
+                    return true;
+            }
+
+            return false;
         }
 
         /// <summary>

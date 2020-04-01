@@ -43,5 +43,12 @@ namespace RobotTest.Services.Interfaces
         /// <param name="boardName"></param>
         /// <returns></returns>
         Robot GetRobot(string boardName);
+
+        /// <summary>
+        /// Checks if the robot exists
+        /// </summary>
+        /// <param name="boardName"></param>
+        /// <returns></returns>
+        bool RobotExists(string boardName);
     }
 }

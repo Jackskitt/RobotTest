@@ -86,7 +86,7 @@ namespace RobotTest.Tests
         }
 
         [Fact]
-        public void TestRobotMoveOffEdageExpectFalse()
+        public void TestRobotMoveOffEdgeExpectFalse()
         {
             var boardService = new BoardService(new BoardPositionConverter(), new MockPositionValidator());
             var robotService = new RobotService(boardService, new PositionValidator());
@@ -94,5 +94,26 @@ namespace RobotTest.Tests
             robotService.PlaceRobot("test", new Vector2(1, 4), Direction.NORTH);
             Assert.Throws<RobotOutOfBoundsException>(() => robotService.MoveForward("test"));           
         }
+
+
+        [Fact]
+        public void TestRobotExistsCheckExpectTrue()
+        {
+            var boardService = new BoardService(new BoardPositionConverter(), new MockPositionValidator());
+            var robotService = new RobotService(boardService, new PositionValidator());
+            boardService.CreateNewBoard("test", 5, 5);
+            robotService.PlaceRobot("test", new Vector2(1, 4), Direction.NORTH);
+            Assert.True(robotService.RobotExists("test"));
+        }
+
+        [Fact]
+        public void TestRobotExistsCheckExpectFalse()
+        {
+            var boardService = new BoardService(new BoardPositionConverter(), new MockPositionValidator());
+            var robotService = new RobotService(boardService, new PositionValidator());
+            boardService.CreateNewBoard("test", 5, 5);
+            Assert.False(robotService.RobotExists("test"));
+        }
+
     }
 }
