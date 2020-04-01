@@ -46,30 +46,6 @@ namespace RobotTest.Tests
             Assert.Equal("X: 1 Y: 1 F: NORTH", robotReport);
         }
 
-        [Fact]
-        public void TestGetBoardExpectTestBoard()
-        {
-            var boardService = new BoardService(new BoardPositionConverter(), new MockPositionValidator());
-            var expected = boardService.CreateNewBoard("test", 5, 5);
-            var fetched = boardService.GetBoard("test");
-            Assert.Equal(expected, fetched);
-        }
-
-        [Fact]
-        public void MoveObjectAtPositionExpectSuccess()
-        {
-            var boardService = new BoardService(new BoardPositionConverter(), new MockPositionValidator());
-            var robotService = new RobotService(boardService, new PositionValidator());
-            boardService.CreateNewBoard("test", 5, 5);
-            robotService.PlaceRobot("test", new Vector2(1, 1), Direction.NORTH);
-            var robotReport = robotService.ReportPosition("test");
-            Assert.Equal("X: 1 Y: 1 F: NORTH", robotReport);
-            var moveResult = boardService.MoveObjectAtPosition("test", new Vector2(1, 1), new Vector2(3, 3));
-            Assert.True(moveResult);
-            var newRobotPosition = robotService.ReportPosition("test");
-
-            Assert.Equal("X: 3 Y: 3 F: NORTH", newRobotPosition);
-        }
 
         [Fact]
         public void TestGetRobotWithPlacedRobot()
