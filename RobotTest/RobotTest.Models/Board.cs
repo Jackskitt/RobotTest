@@ -14,6 +14,8 @@ namespace RobotTest.Models
             this.Height = height;
         }
 
+        public string Name { get; set; }
+
         public IBoardItem[,] BoardItems { get; set; }
 
         public int Width { get; set; }
@@ -22,11 +24,5 @@ namespace RobotTest.Models
 
         public Vector2 RobotPosition { get; set; }
 
-        public bool IsPositionValid(Vector2 position)
-        {
-
-        }
-
-        public static Vector2 GetNormalisedPosition(int width, int height);
     }
 }

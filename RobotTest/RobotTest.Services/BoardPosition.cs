@@ -1,16 +1,22 @@
 ﻿using RobotTest.Models;
 using RobotTest.Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace RobotTest.Services
 {
+
+    /// <summary>
+    /// For this rotation the equation is symmetrical although this might not always be the case
+    /// </summary>
     public class BoardPositionConverter : IBoardPositionConverter
     {
-        public Vector2 GetPosition(Vector2 position, Board board)
+        public Vector2 FromBoardCoordinates(Vector2 position, Board board)
         {
-            throw new NotImplementedException();
+            return ToBoardCoordinates(position, board);
+        }
+
+        public Vector2 ToBoardCoordinates(Vector2 position, Board board)
+        {
+            return new Vector2(position.X, (position.Y - board.Height) * -1);
         }
     }
 }

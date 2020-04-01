@@ -12,10 +12,18 @@ namespace RobotTest.Models
         WEST
     }
 
+    public enum RotateDirection
+    {
+        LEFT = -1,
+        RIGHT = 1
+    }
+
     public class Robot : IRobot 
     {
-        public Robot(ConsoleColor robotColor)
+        public Robot(ConsoleColor robotColor, Vector2 position, Direction direction)
         {
+            this.Position = position;
+            this.Direction = direction;
             ItemColor = robotColor;
         }
 
@@ -28,6 +36,11 @@ namespace RobotTest.Models
         public char ToBoardPiece()
         {
             return 'R';
+        }
+
+        public string ToBoardReport()
+        {
+            return $"X: {Position.X} Y: {Position.Y} F: {Direction.ToString()}";
         }
     }
 }

@@ -8,9 +8,10 @@ namespace RobotTest.Models
 {
     public class DefaultBoardItem : IBoardItem
     {
-        public DefaultBoardItem()
+        public DefaultBoardItem(Vector2 position)
         {
             ItemColor = ConsoleColor.White;
+            this.position = position;
         }
 
         public ConsoleColor ItemColor { get; set; }

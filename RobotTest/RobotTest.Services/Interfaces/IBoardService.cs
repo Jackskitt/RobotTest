@@ -10,6 +10,15 @@ namespace RobotTest.Services.Interfaces
     {
         void DrawBoard(Board boardToDraw);
 
-        bool PlaceObjectAtPosition(IBoardItem boardItem, Vector2 position);
+        bool PlaceObjectAtPosition(string boardName, IBoardItem boardItem, Vector2 position);
+
+        bool MoveObjectAtPosition(string boardName, Vector2 source, Vector2 destination);
+
+        Board GetBoard(string name);
+
+        Robot GetRobot(string boardName);
+
+        void SaveBoard(Board board);
+
     }
 }

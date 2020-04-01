@@ -8,5 +8,7 @@ namespace RobotTest.Models.Interfaces
         public string Name { get; set; }
 
         public Direction Direction { get; set; }
+
+        string ToBoardReport();
     }
 }
